@@ -1,9 +1,18 @@
-const array = new Array(8).fill(0)
+const array = [1,2,3,4,5,6,7];
+const target = 3;
+const result =[];
 
-async function test() {
-  const data = await fetch("http://www.omdbapi.com/?apikey=c17c1181&s=fast")
-  const realdata = await data.json();
-realdata.map((game) => game.title)
+function twoSum() {
+
+  for (let i=0; i<array.length; i++) {
+
+   for (let j=i+1; j<array.length; j++) {
+   if (array[i] + array[j] == target){
+    result.push(array[i], array[j])
+    console.log(result)
+
+   }
 }
-
-test();
+}
+}
+twoSum();
