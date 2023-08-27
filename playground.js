@@ -1,16 +1,12 @@
-function TwoSum() {
-  const sum = 5;
-  const array = [10, 2, 3, 4, 5, 6];
-  const dummyarrray = [];
-
-  for (let i = 0; i < array.length; i++) {
-    for (let j = i + 1; j < array.length; j++) {
-      if (array[j] + array[i] == sum) {
-        dummyarrray.push(array[j], array[i]);
-        console.log(dummyarrray);
-      }
-    }
+function mergeTwoLists(l1, l2) {
+  if (!l1) return console.log(l2);
+  else if (!l2) return console.log(l2);
+  else if (l1.val <= l2.val) {
+    l1.next = mergeTwoLists(l1.next, l2);
+    console.log(l1);
+  } else {
+    l2.next = mergeTwoLists(l1, l2.next);
+    console.log(l2);
   }
 }
-
-TwoSum();
+mergeTwoLists([1, 2, 3, 4], [5, 6, 7, 8]);
