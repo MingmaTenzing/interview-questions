@@ -1,22 +1,16 @@
- function palanthresis(s) {
-  // Initialize stack to store the closing brackets expected...
-  let stack = [];
-  // Traverse each charater in input string...
-  for (let idx = 0; idx < s.length; idx++) {
-      // If open parentheses are present, push it to stack...
-      if (s[idx] == '{') {
-          stack.push('}');
-      } else if (s[idx] == '[') {
-          stack.push(']');
-      } else if (s[idx] == '(') {
-          stack.push(')');
-      }
-      // If a close bracket is found, check that it matches the last stored open bracket
-      else if (stack.pop() !== s[idx]) {
-          console.log( false)
-      }
-  }
-  console.log( !stack.length)
-};
+function TwoSum() {
+  const sum = 5;
+  const array = [10, 2, 3, 4, 5, 6];
+  const dummyarrray = [];
 
-palanthresis("[[]")
+  for (let i = 0; i < array.length; i++) {
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[j] + array[i] == sum) {
+        dummyarrray.push(array[j], array[i]);
+        console.log(dummyarrray);
+      }
+    }
+  }
+}
+
+TwoSum();
