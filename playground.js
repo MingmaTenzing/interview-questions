@@ -1,12 +1,17 @@
-function mergeTwoLists(l1, l2) {
-  if (!l1) return console.log(l2);
-  else if (!l2) return console.log(l2);
-  else if (l1.val <= l2.val) {
-    l1.next = mergeTwoLists(l1.next, l2);
-    console.log(l1);
-  } else {
-    l2.next = mergeTwoLists(l1, l2.next);
-    console.log(l2);
+function reversInt(number) {
+  let string = number.toString();
+  let reverseString ="";
+  
+  
+
+
+  for (let i=0; i<string.length; i++) {
+    reverseString = string[i] + reverseString; 
+
   }
+
+  console.log(parseInt(reverseString))
+
 }
-mergeTwoLists([1, 2, 3, 4], [5, 6, 7, 8]);
+
+reversInt(2334)
