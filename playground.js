@@ -1,16 +1,23 @@
-function validPalindrome(str) {
-if (!str) {
-  return console.log(true)
-}
-  const cleanString = str.toLowerCase().replaceAll(",", "").replaceAll(":","").split(" ").join("")
-  //another way of doing to remove all the is by using:
-  //str.replace(/[^z-z0-9]/gi,"")
-  const reverseString = cleanString.split("").reverse().join("");
+function validAnagram(strA, strB) {
+  let charMapA = new Map();
+  let charMapB = new Map();
 
-  if (reverseString == cleanString) {
-    console.log(true)
+  for (char of strA) {
+    charMapA.set(char, charMapA.get(char) + 1 || 1);
   }
-  else console.log(false)
-}
+  for (char of strB) {
+    charMapB.set(char, charMapB.get(char) + 1 || 1);
+  }
+  if (charMapA.size !== charMapB.size) {
+    return console.log(false);
+  }
 
-validPalindrome("A man, a plan, a canal: Panama ")
+  for (const [charA, countA] of charMapA) {
+    if (charMapB.get(charA) !== countA) {
+      return console.log(false)
+    }
+
+    return console.log(true);
+  }
+}
+validAnagram("test", "pest");
