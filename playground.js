@@ -1,28 +1,24 @@
-function capitalize(str) {
-  let capString = "";
-
-  for (let i = 0; i < str.length; i++) {
-    if (i == 0 || str[i - 1] == " ") {
-      capString = capString + str[i].toUpperCase();
-    } else {
-      capString = capString + str[i];
+function stringifyId(arr) {
+  const uniqueIds = [];
+  const ids = arr.map((details, _) => details.id)
+  for (checkId of ids) {
+    if (checkId !== uniqueIds.find((id) => id == checkId)) {
+      uniqueIds.push(checkId);
     }
   }
-  console.log(capString);
+  console.log(uniqueIds.join(", "))
 }
 
-capitalize("a green apple");
 
-//MORE CLEANER WAY
+// top tech way 
+// const idArray = arr.map((obj) => obj.id)
+// const uniqueArray = [...new Set(idArray)]
+//console.log(uniqueArray.join(", "))
 
-function Cap(str) {
-  const array = str.split(" ");
-  const capArray = [];
-  for (word of array) {
-    const capitalize = word[0].toUpperCase() + word.slice(1);
-    capArray.push(capitalize);
-  }
-console.log(capArray.join(" "))
-}
-
-Cap("a green apple");
+stringifyId([
+  { id: "ABC", name: "Ming" },
+  { id: "abc", name: "Ting" },
+  { id: "CBA", name: "sher" },
+  { id: "CBA", name: "sher" },
+  { id: "abc", name: "sher" },
+]);
