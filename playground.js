@@ -1,23 +1,28 @@
-function validAnagram(strA, strB) {
-  let charMapA = new Map();
-  let charMapB = new Map();
+function capitalize(str) {
+  let capString = "";
 
-  for (char of strA) {
-    charMapA.set(char, charMapA.get(char) + 1 || 1);
-  }
-  for (char of strB) {
-    charMapB.set(char, charMapB.get(char) + 1 || 1);
-  }
-  if (charMapA.size !== charMapB.size) {
-    return console.log(false);
-  }
-
-  for (const [charA, countA] of charMapA) {
-    if (charMapB.get(charA) !== countA) {
-      return console.log(false)
+  for (let i = 0; i < str.length; i++) {
+    if (i == 0 || str[i - 1] == " ") {
+      capString = capString + str[i].toUpperCase();
+    } else {
+      capString = capString + str[i];
     }
-
-    return console.log(true);
   }
+  console.log(capString);
 }
-validAnagram("test", "pest");
+
+capitalize("a green apple");
+
+//MORE CLEANER WAY
+
+function Cap(str) {
+  const array = str.split(" ");
+  const capArray = [];
+  for (word of array) {
+    const capitalize = word[0].toUpperCase() + word.slice(1);
+    capArray.push(capitalize);
+  }
+console.log(capArray.join(" "))
+}
+
+Cap("a green apple");
