@@ -1,24 +1,24 @@
-function stringifyId(arr) {
-  const uniqueIds = [];
-  const ids = arr.map((details, _) => details.id)
-  for (checkId of ids) {
-    if (checkId !== uniqueIds.find((id) => id == checkId)) {
-      uniqueIds.push(checkId);
-    }
+function maxcharacter(str) {
+
+  let charMap = new Map();
+let max = 0;
+let maxChar= "";
+
+  for (char of str) {
+    charMap.set(char, charMap.get(char) + 1 || 1)
   }
-  console.log(uniqueIds.join(", "))
+
+  for (const [char, count] of charMap) {
+  if (count > max) {
+    max = count;
+    maxChar = char;
+  }
+  }
+
+  console.log(maxChar)
+
+
+
 }
 
-
-// top tech way 
-// const idArray = arr.map((obj) => obj.id)
-// const uniqueArray = [...new Set(idArray)]
-//console.log(uniqueArray.join(", "))
-
-stringifyId([
-  { id: "ABC", name: "Ming" },
-  { id: "abc", name: "Ting" },
-  { id: "CBA", name: "sher" },
-  { id: "CBA", name: "sher" },
-  { id: "abc", name: "sher" },
-]);
+maxcharacter('simplified')

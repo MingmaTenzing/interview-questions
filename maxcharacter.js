@@ -1,33 +1,24 @@
-function maxCharacter(str) {
-  let charMap = {};
-  let maxValue = 0;
-  let maxChar =""
+function maxcharacter(str) {
 
+  let charMap = new Map();
+let max = 0;
+let maxChar= "";
 
-  for (let char of str) {
-   if(!charMap[char]){
-    charMap[char] = 1;
-   }
-   else{
-    charMap[char] = charMap[char] + 1;
-   }
+  for (char of str) {
+    charMap.set(char, charMap.get(char) + 1 || 1)
   }
 
-
-for ( let char in charMap) {
-   if (charMap[char] > maxValue) {
-    maxValue = charMap[char];
+  for (const [char, count] of charMap) {
+  if (count > max) {
+    max = count;
     maxChar = char;
-    
-   }
+  }
+  }
+
+  console.log(maxChar)
+
 
 
 }
 
-console.log(maxChar)
-
-}
-
-
-
-maxCharacter("aaaabbbccd")
+maxcharacter('simplified')
