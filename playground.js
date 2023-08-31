@@ -1,24 +1,12 @@
-function maxcharacter(str) {
+function arrayChunk(array, size) {
+  const chunkedArray = [];
 
-  let charMap = new Map();
-let max = 0;
-let maxChar= "";
+  for (let i = 0; i < array.length; i += size) {
+    subarray = array.slice(i, i+size)
 
-  for (char of str) {
-    charMap.set(char, charMap.get(char) + 1 || 1)
+   chunkedArray.push(subarray)
   }
-
-  for (const [char, count] of charMap) {
-  if (count > max) {
-    max = count;
-    maxChar = char;
-  }
-  }
-
-  console.log(maxChar)
-
-
-
+  console.log(chunkedArray)
 }
 
-maxcharacter('simplified')
+arrayChunk([0, 1, 2, 3, 4,4,5,3,32,3], 3);
