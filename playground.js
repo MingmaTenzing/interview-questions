@@ -1,14 +1,22 @@
-function steps(n) {
-  for (let col = 0; col < n; col++) {
+function pyramid(n) {
+  const colWidth = n * 2 - 1;
+  const middleCol = Math.floor(colWidth/2)
+
+  for (let row = 0; row < n; row++) {
     let steps = "";
 
-    for (let row = 0; row < n; row++) {
-      if (row <= col) {
-        steps += "#";
-      } else steps += " ";
+    for (let col = 0; col < colWidth; col++) {
+    
+      if (col >= middleCol - row && col <= middleCol + row){
+        steps += "#"
+      }
+      else {
+        steps += " "
+      }
     }
     console.log(steps)
+
   }
 }
 
-steps(4);
+pyramid(4);
