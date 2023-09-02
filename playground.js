@@ -1,21 +1,27 @@
-function pyramid(n) {
-  const colWidth = n*2 -1
-  const middleCol = Math.floor(colWidth/2)
+function bestProfit(prices) {
+  const pricesMap = new Map();
+  let buyingPrice = [...prices].sort()[0];
+  let sellingPrice = 0;
 
-  for (let row =0; row<n; row++) {
-
-    let steps = "";
-    for (let col =0; col<colWidth; col++) {
-
-      if (col >= middleCol - row && col <= middleCol + row){
-        steps += "#"
-      }
-      else steps += " ";
+  for (let i=0; i<prices.length; i++) {
+    pricesMap.set(prices[i], i +1 )
+  }
+  
+  for (let j=pricesMap.get(buyingPrice); j<prices.length; j++) {
+    if (pricesMap.get(buyingPrice) + 1 == prices.length) {
+      console.log('return')
     }
-    console.log(steps)
+    if (prices[j] > sellingPrice) {
+      sellingPrice = prices[j]
+    }
   }
 
+  if (sellingPrice - buyingPrice <= 0) {
+    return console.log(0)
+  }
+  else return console.log(sellingPrice - buyingPrice)
 
+  
 }
 
-pyramid(4)
+bestProfit([1,2 ]);
