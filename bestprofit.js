@@ -1,30 +1,24 @@
-/// MY OWN WAY BY USING FOR LOOP AND CHARACTER MAP 
-function bestProfit(prices) {
-    const pricesMap = new Map();
-    let buyingPrice = [...prices].sort()[0];
-    let sellingPrice = 0;
+function stockTrading(prices) {
+
+
+  let l=0;
   
-    for (let i=0; i<prices.length; i++) {
-      pricesMap.set(prices[i], i +1 )
-    }
-    
-    for (let j=pricesMap.get(buyingPrice); j<prices.length; j++) {
-      if (pricesMap.get(buyingPrice) + 1 == prices.length) {
-        console.log('return')
-      }
-      if (prices[j] > sellingPrice) {
-        sellingPrice = prices[j]
-      }
-    }
+  let maxProfit = 0;
   
-    if (sellingPrice - buyingPrice <= 0) {
-      return console.log(0)
+  for (let r=1; r<prices.length; r++) {
+    const profit = prices[r] - prices[l];
+    if (profit > 0) {
+      maxProfit =  Math.max(maxProfit, profit)
     }
-    else return console.log(sellingPrice - buyingPrice)
+    else l=r
+  }
+  console.log(maxProfit)
   
-    
+  
+  
+  
+  
   }
   
-  bestProfit([1,2 ]);
-
-  ///
+  stockTrading([8,3,6,1,6,4,7]);
+  
