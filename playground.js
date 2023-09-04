@@ -1,23 +1,16 @@
-function stockTrading(prices) {
+function maxSubarray(nums) {
+  let maxSum = 0;
 
+  for (let i=0; i<nums.length; i++) {
 
-let l=0;
+    let sum =0; 
+    for (let j=i; j<nums.length; j++) {
+      sum += nums[j];
+      maxSum = Math.max(maxSum, sum)
 
-let maxProfit = 0;
-
-for (let r=1; r<prices.length; r++) {
-  const profit = prices[r] - prices[l];
-  if (profit > 0) {
-    maxProfit =  Math.max(maxProfit, profit)
+    }
   }
-  else l=r
-}
-console.log(maxProfit)
-
-
-
-
-
+console.log(maxSum)
 }
 
-stockTrading([8,3,6,1,6,4,7]);
+maxSubarray([-2,1,-3,4,-1,2,-5,0])
