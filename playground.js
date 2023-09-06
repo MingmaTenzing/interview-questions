@@ -1,16 +1,48 @@
-function maxSubarray(nums) {
-  let maxSum = 0;
+/// whenever you are soliving a problem 
+///that uses pointer like L and R, 
+/// its better to use the while loop instead of for looop
+//// using while loop solution is at the bottom
 
-  for (let i=0; i<nums.length; i++) {
+function twoSortedSum(arr, target) {
+  let l = 0;
+  let r = arr.length - 1;
 
-    let sum =0; 
-    for (let j=i; j<nums.length; j++) {
-      sum += nums[j];
-      maxSum = Math.max(maxSum, sum)
+  for (let i = 0; i < arr.length; i++) {
+    sum = arr[l] + arr[r];
 
+    if (sum < target) {
+      l += 1;
+    } else if (sum > target) {
+      r -= 1;
+    } else {
+      return console.log([l, r]);
     }
   }
-console.log(maxSum)
+  
 }
 
-maxSubarray([-2,1,-3,4,-1,2,-5,0])
+twoSortedSum([10,30], 40);
+
+
+
+//// using while LOOP 
+
+function twoSortedSumWhileLoop(arr,target) {
+
+let l=0;
+let r=arr.length -1; 
+
+while (l<r) {
+   const sum = arr[l] + arr[r]
+
+   if (sum < target) {
+    l++
+   }
+   else if (sum>target) {
+    r--
+   }
+   else return console.log([l,r]);
+}
+
+}
+twoSortedSumWhileLoop([10,30],40)
