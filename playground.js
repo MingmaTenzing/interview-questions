@@ -1,20 +1,32 @@
-function stockTrading(prices) {
+function threeSum(nums) {
+  const results = [];
+  nums.sort((a, b) => (a, -b));
 
-  let l=0;
- let maxProfit = 0;
-  for (r=1; r<prices.length; r++) {
-      profit = prices[r] - prices[l];
-      if (profit < 0 ) {
-        l=r
+  for (i = 0; i < nums.length - 2; i++) {
+    if (nums[i] === nums[i - 1]) {
+      continue;
+    }
+    let l = i + 1;
+    let r = nums.length - 1;
+
+    while (l < r) {
+      const sum = nums[i] + nums[l] + nums[r];
+      if (sum < 0) {
+        l++;
       }
-      else if (profit > maxProfit) {
-        maxProfit = profit;
-      } 
-       
+      if (sum > 0) {
+        r--;
+      }
+      if (sum === 0) {
+        results.push([nums[i], nums[l], nums[r]]);
+        l++;
+        while (nums[l] === nums[l - r] && l < r) {
+          l++;
+        }
+      }
+    }
   }
-  console.log(maxProfit)
-
-
+  console.log(results);
 }
 
-stockTrading([2,9,18,9,2])
+threeSum([-1, 0, 1, 2, -1, -4]);
