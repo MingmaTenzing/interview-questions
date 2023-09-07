@@ -1,20 +1,20 @@
-function twoSortedSum(arr, target) {
-  l=0;
-  r= arr.length -1; 
+function stockTrading(prices) {
 
-  while (l < r) {
-    const sum = arr[l] + arr[r];
-    if (sum <target) {
-      l++
-    }
-    else if (sum>target) {
-      r--
-    }
-    else  return console.log([l,r])
+  let l=0;
+ let maxProfit = 0;
+  for (r=1; r<prices.length; r++) {
+      profit = prices[r] - prices[l];
+      if (profit < 0 ) {
+        l=r
+      }
+      else if (profit > maxProfit) {
+        maxProfit = profit;
+      } 
+       
   }
-
+  console.log(maxProfit)
 
 
 }
 
-twoSortedSum([2,4,7,8],9)
+stockTrading([2,9,18,9,2])
