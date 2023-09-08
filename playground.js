@@ -1,16 +1,15 @@
-function threeSum(nums) {
-  const results = [];
-  nums.sort((a, b) => (a, -b));
-
-  for (i = 0; i < nums.length - 2; i++) {
-    if (nums[i] === nums[i - 1]) {
+function threeSum(arr) {
+  const sortedArray = [...arr].sort();
+  const subarray = [];
+  for (let i = 0; i < sortedArray.length - 2; i++) {
+    if (sortedArray[i] === sortedArray[i - 1]) {
       continue;
     }
     let l = i + 1;
-    let r = nums.length - 1;
+    let r = sortedArray.length - 1;
 
     while (l < r) {
-      const sum = nums[i] + nums[l] + nums[r];
+      const sum = sortedArray[i] + sortedArray[l] + sortedArray[r];
       if (sum < 0) {
         l++;
       }
@@ -18,15 +17,15 @@ function threeSum(nums) {
         r--;
       }
       if (sum === 0) {
-        results.push([nums[i], nums[l], nums[r]]);
+        subarray.push([sortedArray[i], sortedArray[l], sortedArray[r]]);
         l++;
-        while (nums[l] === nums[l - r] && l < r) {
+        if (sortedArray[l] === sortedArray[l-1]  && l<r){
           l++;
         }
       }
     }
   }
-  console.log(results);
+  console.log(subarray);
 }
 
 threeSum([-1, 0, 1, 2, -1, -4]);
