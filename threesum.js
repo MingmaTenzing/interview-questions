@@ -19,7 +19,7 @@ function threeSum(arr) {
         if (sum === 0) {
           subarray.push([sortedArray[i], sortedArray[l], sortedArray[r]]);
           l++;
-          if (sortedArray[l] === sortedArray[l-1]  && l<r){
+          while (sortedArray[l] === sortedArray[l-1]  && l<r){
             l++;
           }
         }

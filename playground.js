@@ -1,31 +1,32 @@
 function threeSum(arr) {
-  const sortedArray = [...arr].sort();
-  const subarray = [];
-  for (let i = 0; i < sortedArray.length - 2; i++) {
-    if (sortedArray[i] === sortedArray[i - 1]) {
+  const newArr = arr.sort((a, b) => a - b);
+  const result = [];
+
+  for (let i = 0; i < newArr.length; i++) {
+    if (newArr[i] == newArr[i - 1]) {
       continue;
     }
     let l = i + 1;
-    let r = sortedArray.length - 1;
+    let r = newArr.length - 1;
 
     while (l < r) {
-      const sum = sortedArray[i] + sortedArray[l] + sortedArray[r];
-      if (sum < 0) {
-        l++;
-      }
-      if (sum > 0) {
-        r--;
-      }
-      if (sum === 0) {
-        subarray.push([sortedArray[i], sortedArray[l], sortedArray[r]]);
-        l++;
-        if (sortedArray[l] === sortedArray[l-1]  && l<r){
-          l++;
-        }
-      }
+      const sum = newArr[i] + newArr[l] + newArr[r];
+  if (sum < 0) {
+    l++
+  }
+  if (sum>0) {
+    r--
+  }
+  if (sum == 0 ) {
+    result.push([newArr[i], newArr[l], newArr[r]])
+    l++;
+    if (newArr[l] == newArr[l-1] ) {
+      l++
     }
   }
-  console.log(subarray);
+    }
+  }
+  console.log(result)
 }
 
-threeSum([-1, 0, 1, 2, -1, -4]);
+threeSum([-2,-2,0,0,1,1,2,2]);
