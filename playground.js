@@ -1,32 +1,24 @@
-function threeSum(arr) {
-  const newArr = arr.sort((a, b) => a - b);
+function self(nums) {
+  const leftProduct = [];
+  const rightProduct = [];
   const result = [];
 
-  for (let i = 0; i < newArr.length; i++) {
-    if (newArr[i] == newArr[i - 1]) {
-      continue;
-    }
-    let l = i + 1;
-    let r = newArr.length - 1;
+  leftProduct[0] = 1;
+  rightProduct[nums.length - 1] = 1;
 
-    while (l < r) {
-      const sum = newArr[i] + newArr[l] + newArr[r];
-  if (sum < 0) {
-    l++
+  for (let i = 1; i < nums.length; i++) {
+    leftProduct[i] = nums[i - 1] * leftProduct[i - 1];
   }
-  if (sum>0) {
-    r--
+
+  for (let i = nums.length -2; i>=0 ; i--) {
+   rightProduct[i] = nums[i + 1] * rightProduct[ i + 1]
   }
-  if (sum == 0 ) {
-    result.push([newArr[i], newArr[l], newArr[r]])
-    l++;
-    if (newArr[l] == newArr[l-1] ) {
-      l++
-    }
-  }
-    }
+
+ 
+  for (let i=0; i<nums.length; i++) {
+    result[i] = rightProduct[i] * leftProduct[i];
   }
   console.log(result)
 }
 
-threeSum([-2,-2,0,0,1,1,2,2]);
+self([10,1,5,2]);
