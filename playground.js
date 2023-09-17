@@ -1,14 +1,20 @@
-function meetingTimes(times) {
-  times = times.sort((a,b) => a-b)
+function binarySearch(nums, target) {
 
-  for (let i=1; i<times.length; i++) {
-     let startTime = times[i][0];
-     let prevEndTime = times[i-1][1]
-     if (startTime < prevEndTime) {
-      return console.log (false)
-     }
+  let l =0; 
+  let r = nums.length - 1;
+  while (l<=r) {
+    const mid = Math.floor((l+r) / 2)
+
+    if (nums[mid] < target) {
+      l = mid + 1
+
+    }
+    if (nums[mid] >target) {
+      r = mid  - 1;
+    }
+    if (nums[mid] === target) {
+      return console.log(mid)
+    }
   }
-  return console.log(true)
-
 }
-meetingTimes([[10,20],[20,30],[10,20]])
+binarySearch([1,2,4,9,12], 9);
