@@ -1,15 +1,14 @@
-function findMinum(nums) {
-  let l = 0;
-  let r = nums.length - 1;
-  while (l < r) {
-    let mid = Math.floor((l + r) / 2);
-    if (nums[mid] > nums[r]) {
-      l = mid + 1;
-    } else {
-      r = mid;
-    }
-  }
-  return console.log(nums[l]);
-}
+function mininRotated(nums) {
+let l=0;
+let r= nums.length -1; 
 
-findMinum([8, 9, 10, 0, 1, 2, 3, 4]);
+while (l<r) {
+  const mid = Math.floor((l+r)/2);
+  if (nums[mid] > nums[mid + 1]) {
+    l = mid + 1
+  }
+  else r = mid; 
+}
+return console.log(nums[l])
+}
+mininRotated([7,9,12,3,4])
