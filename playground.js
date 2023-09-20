@@ -1,22 +1,25 @@
-function searchRotatedArray(nums, target) {
+function mostWater(heights) {
+
   let l=0;
-  let r= nums.length - 1; 
+  let r=heights.length -1; 
+  let maxArea = 0;
 
-  while (l <=r) {
-    const mid = Math.floor((l+r)/2);
-    if (nums[mid] <target) {
-      l = mid  +1;
+
+  while (l<r) {
+    const width = r - l; 
+    const height = Math.min(heights[l], heights[r]);
+    const area = width * height;
+   if (area > maxArea) {
+    maxArea = area;
+   }
+    if (heights[l] < heights[r]) {
+      l++
     }
-    if (nums[mid] > target) {
-      r = mid - 1; 
-
+    else {
+      r--
+    }
   }
-  if (nums[mid] === target) {
-    return console.log(mid);
-  }
-
-  }
+  console.log(maxArea)
 
 }
-
-searchRotatedArray([8,9,10,0,1,2,3,4,5,6],1)
+mostWater([4,3,2,1,4])
