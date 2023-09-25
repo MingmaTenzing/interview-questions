@@ -1,16 +1,18 @@
-function flattenArray( nums) {
- const result =[];
+function sumofTwo(nums1, nums2, target)  {
 
-function flattenArrayhelper(nums) {
-  for (elem of nums) {
-    if (Array.isArray(elem)) {
-      flattenArrayhelper(elem);
-    }
-    else result.push(elem)
+  const set = new Set();
+  for ( elem of nums1) {
+     set.add(target - elem);
   }
+  for ( num of nums2) {
+    if (set.has(num)) {
+      return console.log(true)
+    }
 
-}
-flattenArrayhelper(nums);
-console.log(result)
-}
-flattenArray([1,2,3,[4,5]])
+  }
+  console.log(false)
+  
+ }
+ 
+ sumofTwo([0,12,8],[3,1,4],2)
+ 

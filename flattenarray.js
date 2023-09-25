@@ -1,16 +1,16 @@
 function flattenArray( nums) {
-    const result =[];
-   
-   function flattenArrayhelper(nums) {
-     for (elem of nums) {
-       if (Array.isArray(elem)) {
-         flattenArrayhelper(elem);
-       }
-       else result.push(elem)
-     }
-   
+    
+  const result =[];
+
+  function flattenHelper(nums) {
+    for (elem of nums) {
+      if (Array.isArray(elem)){
+        flattenHelper(elem);
+      }
+      else result.push(elem)
+    }
+
+  }
+  flattenHelper();
    }
-   flattenArrayhelper(nums);
-   console.log(result)
-   }
-   flattenArray([1,2,3,[4,5]])
+   flattenArray([1,2,3,[4,[5]]])
