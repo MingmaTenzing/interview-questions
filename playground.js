@@ -1,17 +1,17 @@
-function sumofTwo(nums1,nums2,target) {
+function moveZeroes(nums) {
+  let l = 0;
+  let r = 0;
 
-  const set = new Set();
-  for (let elem of nums1) {
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[r] !== 0) {
+      temp = nums[l];
+      nums[l] = nums[r];
+      nums[r] = temp;
 
-    set.add(elem)
-  }
-  for (let elem of nums2) {
-    if (set.has(elem)) {
-      return console.log(true);
+      l++;
     }
+    r++;
   }
-  console.log(false)
-
+  console.log(nums);
 }
-
-sumofTwo([1,2,3],[5,2],8)
+moveZeroes([1, 0, 2, 0]);
