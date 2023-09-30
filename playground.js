@@ -1,17 +1,21 @@
-function moveZeroes(nums) {
-  let l = 0;
-  let r = 0;
+function insertionSort(nums) {
 
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[r] !== 0) {
-      temp = nums[l];
-      nums[l] = nums[r];
-      nums[r] = temp;
+  for (let i=1; i<nums.length; i++) {
 
-      l++;
+    while (nums[i-1]> nums[i]) {
+      
+        let temp = nums[i-1];
+        nums[i-1] = nums[i];
+        nums[i] = temp;
+        i--;
+      }
     }
-    r++;
+    
+    
+    console.log(nums)
   }
-  console.log(nums);
-}
-moveZeroes([1, 0, 2, 0]);
+
+
+
+
+insertionSort([9,7,5,2,8,4])
