@@ -1,21 +1,17 @@
-function insertionSort(nums) {
-
-  for (let i=1; i<nums.length; i++) {
-
-    while (nums[i-1]> nums[i]) {
-      
-        let temp = nums[i-1];
-        nums[i-1] = nums[i];
-        nums[i] = temp;
-        i--;
+function selectionSort(nums) {
+  for (let i = 0; i < nums.length; i++) {
+    let currentMin = i;
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[j] < nums[currentMin]) {
+        currentMin = j;
       }
     }
-    
-    
-    console.log(nums)
+
+    let temp = nums[i];
+    nums[i] = nums[currentMin];
+    nums[currentMin] = temp;
   }
+  console.log(nums)
+}
 
-
-
-
-insertionSort([9,7,5,2,8,4])
+selectionSort([10, 4, 1, 5, 2, 6]);
