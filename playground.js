@@ -1,17 +1,25 @@
-function selectionSort(nums) {
-  for (let i = 0; i < nums.length; i++) {
-    let currentMin = i;
-    for (let j = i + 1; j < nums.length; j++) {
-      if (nums[j] < nums[currentMin]) {
-        currentMin = j;
-      }
-    }
 
-    let temp = nums[i];
-    nums[i] = nums[currentMin];
-    nums[currentMin] = temp;
+class Car {
+  constructor(brand, year) {
+
+    this.brand = brand;
+    this.year = parseFloat(year);
   }
-  console.log(nums)
+  getAge() {
+    let date = new Date();
+    const getYear = date.getFullYear();
+    const age = getYear - this.year; 
+    return age;
+  }
+  print() {
+    return `This ${this.brand} is ${this.getAge()} years old`
+  }
+
+
 }
 
-selectionSort([10, 4, 1, 5, 2, 6]);
+const audi = new Car('Audi', '2014')
+const bmw = new Car('bmw', '2024')
+const toyota = new Car('toyot', '1999')
+
+console.log(toyota.print())
