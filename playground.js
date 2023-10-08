@@ -1,25 +1,23 @@
+function rotatedBinarySearch(nums, target) {
 
-class Car {
-  constructor(brand, year) {
+  let l=0; 
+  let r= nums.length - 1 ;
 
-    this.brand = brand;
-    this.year = parseFloat(year);
+  while (l<=r) {
+    const mid = Math.floor((l+r)/2);
+     if (nums[mid] < nums[r]) {
+      l = mid + 1; 
+     }
+     if (nums[mid] > nums[l]) {
+      r = mid-1;
+     }
+     if (nums[mid] === target) {
+      return console.log(mid)
+     }
   }
-  getAge() {
-    let date = new Date();
-    const getYear = date.getFullYear();
-    const age = getYear - this.year; 
-    return age;
-  }
-  print() {
-    return `This ${this.brand} is ${this.getAge()} years old`
-  }
+
 
 
 }
 
-const audi = new Car('Audi', '2014')
-const bmw = new Car('bmw', '2024')
-const toyota = new Car('toyot', '1999')
-
-console.log(toyota.print())
+rotatedBinarySearch([4,5,6,7,8,9,1,2,3], 2)
